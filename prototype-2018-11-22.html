@@ -1,0 +1,120 @@
+
+<body id='nexus_prototype_preview_html' >
+<div class='phone flex-center-center'>
+    <div id="trigger" class="splash flex-center-center"></div>
+</div>
+</body>
+
+<style id='nexus_prototype_preview_css' >
+    /*.flex-center-center{*/
+        /*display: flex;*/
+        /*display: -webkit-flex;*/
+        /*justify-content: center;*/
+        /*align-items: center;*/
+    /*}*/
+    .phone{
+        width: 360px;
+        height: 540px;
+        margin: 1.25em auto;
+        background-color: white;
+        position: relative;
+    }
+
+    .splash{
+        width: 100%;
+        height: 100%;
+        background-image: url(https://local.yum.co.za/bg.png);
+        background-repeat: no-repeat;
+        background-color: #efab00;
+        background-size: cover;
+        background-position: center;
+        transition: all 0.6s ease;
+        color: transparent;
+        font-family: Arial, Tahoma, sans-serif;
+        position: relative;
+        top: 50%;
+        -webkit-backface-visibility: hidden;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        margin:auto;
+        will-change: transform, width, height, border-radius, background-image;
+    }
+
+.splash.animate{
+    /* animation: animate 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) forwards; */
+     /*animation: animate 1.2s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;*/
+    /*animation: animate 0.4s ease-out forwards;*/
+    /*animation: animate 0.6s ease-out forwards;*/
+    /*animation: animate 0.6s ease forwards;*/
+    /*animation: animate 1.2s ease forwards;*/
+    animation: animate 4s ease forwards;
+}
+
+@keyframes animate {
+    0%{
+        border-radius: 0;
+        /*width: 360px;*/
+        /*height: 500px;*/
+    }
+    7.5%{
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+    }
+    /*10%{*/
+        /*width: 200px;*/
+        /*height: 200px;*/
+        /*border-radius: 50%;*/
+    /*}*/
+    15%{
+        width: 151px;
+        height: 151px;
+        border-radius: 50%;
+        background-color: transparent;
+        background-image: url(/yum_logo_step-1.svg);
+    }
+    43.333%{
+        width: 151px;
+        height: 151px;
+        border-radius: 50%;
+        background-color: transparent;
+        background-image: url(/yum_logo_step-2.svg);
+    }
+    72.666%{
+        width: 151px;
+        height: 151px;
+        border-radius: 50%;
+        background-color: transparent;
+        background-image: url(/yum_logo_step-3.jpg);
+    }
+    100%{
+        width: 151px;
+        height: 151px;
+        border-radius: 50%;
+        background-color: transparent;
+        background-image: url(/yum_logo_step-4.svg);
+    }
+}
+</style>
+
+<script id='nexus_prototype_preview_js' >
+var YUMSplash = {
+    toggleAnimation: function(){
+        var splash = document.querySelector('.splash');
+        var cssClass = 'animate';
+        if( splash.classList.contains( cssClass ) ){
+            splash.classList.remove( cssClass );
+        }else{
+            splash.classList.add( cssClass );
+        }
+    },
+    init: function(){
+        document.getElementById('trigger').addEventListener('click',YUMSplash.toggleAnimation);
+        document.getElementById('trigger').addEventListener("animationend", function() {
+          // alert('ended');
+        }, false);
+    }
+};
+document.addEventListener( 'DOMContentLoaded', YUMSplash.init );
+</script>

@@ -1,0 +1,86 @@
+
+<body id='nexus_prototype_preview_html' >
+<div class='phone flex-center-center'>
+    <div class="splash flex-center-center">
+        <div id="logo" class="flex-center-center">
+            <h1 id="animator">YUM</h1>
+        </div>
+    </div>    
+</div>
+</body>
+
+<style id='nexus_prototype_preview_css' >
+.flex-center-center{
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+}
+.phone{
+    width: 360px;
+    height: 540px;
+    margin: 1.25em auto;
+    background-color: black;
+}
+.splash{
+    width: 100%;
+    height: 100%;
+    background-color: orange;
+    transition: all 0.6s ease;
+    color: white;
+    font-family: Arial;
+}
+
+.splash.animate{
+    animation: animate 0.4s ease-out forwards;
+    /*animation: animate 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;*/
+}
+
+#logo{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+@keyframes animate {
+    0%{
+        border-radius: 0;
+        width: 100%;
+        height: 100%;
+    }
+    35%{
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+    }
+    50%{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+    }
+    100%{
+        width: 151px;
+        height: 151px;
+        border-radius: 50%;
+    }
+}
+</style>
+
+<script id='nexus_prototype_preview_js' >
+var YUMSplash = {
+    toggleAnimation: function(){
+        var splash = document.querySelector('.splash');
+        var cssClass = 'animate';
+        if( splash.classList.contains( cssClass ) ){
+            splash.classList.remove( cssClass );
+        }else{
+            splash.classList.add( cssClass );
+        }
+    },
+    init: function(){
+        document.getElementById('animator').addEventListener('click',YUMSplash.toggleAnimation);
+    }
+};
+document.addEventListener( 'DOMContentLoaded', YUMSplash.init );
+
+</script>

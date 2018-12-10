@@ -1,0 +1,109 @@
+
+<body id='nexus_prototype_preview_html' >
+<div class='phone flex-center-center'>
+    <div id="trigger" class="splash flex-center-center">
+        <div class="logo-container">
+
+        </div>
+    </div>
+</div>
+</body>
+
+<style id='nexus_prototype_preview_css' >
+.flex-center-center{
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    align-items: center;
+}
+.phone{
+    width: 360px;
+    height: 540px;
+    margin: 1.25em auto;
+    background-color: white;
+}
+.splash{
+    width: 100%;
+    height: 100%;
+    background-image: url(https://local.yum.co.za/bg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: #efab00;
+    transition: all 0.6s ease;
+    color: transparent;
+    font-family: Arial;
+}
+
+.splash.animate{
+    /* animation: animate 0.4s cubic-bezier(0.645, 0.045, 0.355, 1) forwards; */
+    animation: animate 0.4s ease-out forwards;
+    animation: animate 0.6s ease-out forwards;
+    animation: animate 0.6s ease forwards;
+}
+
+.logo-container{
+    width: 151px;
+    height: 151px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -75px;
+    margin-left: -75px;
+}
+
+.logo-container img{
+    width: 151px;
+    height: 151px;
+}
+
+@keyframes animate {
+    0%{
+        border-radius: 0;
+        width: 100%;
+        height: 100%;
+        background-image: none;
+    }
+    35%{
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background-image: none;
+    }
+    50%{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background-image: none;
+
+    }
+    99%{
+        background-color: #efab00;
+    }
+    100%{
+        width: 151px;
+        height: 151px;
+        border-radius: 50%;
+        background-image: url(https://local.yum.co.za/yum_logo_step-1.svg);
+    }
+}
+</style>
+
+<script id='nexus_prototype_preview_js' >
+var YUMSplash = {
+    toggleAnimation: function(){
+        var splash = document.querySelector('.splash');
+        var cssClass = 'animate';
+        if( splash.classList.contains( cssClass ) ){
+            splash.classList.remove( cssClass );
+        }else{
+            splash.classList.add( cssClass );
+        }
+    },
+    init: function(){
+        document.getElementById('trigger').addEventListener('click',YUMSplash.toggleAnimation);
+    }
+};
+document.addEventListener( 'DOMContentLoaded', YUMSplash.init );
+</script>
